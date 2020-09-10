@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+        <table class="index", width=100%>
+            <tr class="entry">
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+            {% for row in port %}
+            <tr class="entry">
+                <td>{{row["ticker"]}}</td>
+                <td>{{row["name"]}}</td>
+                <td>{{row["qty"]}}</td>
+                <td>{{row["price"]}}</td>
+                <td>{{row["value"]}}</td>
+            </tr>
+            {% endfor %}
+            <tr class="entry">
+                <td>Cash</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>{{cash[0]["cash"]}}</td>
+            </tr>
+            <tfoot>
+                <tr class="bottomline">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>{{nworth}}</td>
+                </tr>
+            </tfoot>
+        </table>
+{% endblock %}

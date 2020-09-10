@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+        <table class="index", width=100%>
+            <tr class="entry">
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Buy/Sell</th>
+                <th>Transacted</th>
+            </tr>
+            {% for row in history %}
+            <tr class="entry">
+                <td>{{row["ticker"]}}</td>
+                <td>{{row["qty"]}}</td>
+                <td>{{row["price"]}}</td>
+                <td>{{row["type"]}}</td>
+                <td>{{row["time"]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+{% endblock %}
